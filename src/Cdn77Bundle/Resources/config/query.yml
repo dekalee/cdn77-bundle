@@ -1,0 +1,26 @@
+parameters:
+    dekalee_cdn77.query.list_resources.class: Dekalee\Cdn77\Query\ListResourcesQuery
+    dekalee_cdn77.query.purge_file.class: Dekalee\Cdn77\Query\PurgeFileQuery
+    dekalee_cdn77.query.purge_all.class: Dekalee\Cdn77\Query\PurgeAllQuery
+
+services:
+    dekalee_cdn77.query.list_resources:
+        class: '%dekalee_cdn77.query.list_resources.class%'
+        arguments:
+            - '%dekalee_cdn77.api.login%'
+            - '%dekalee_cdn77.api.password%'
+            - '%dekalee_cdn77.url.list%'
+    dekalee_cdn77.query.purge_file:
+        class: '%dekalee_cdn77.query.purge_file.class%'
+        arguments:
+            - '@dekalee_cdn77.query.list_resources'
+            - '%dekalee_cdn77.api.login%'
+            - '%dekalee_cdn77.api.password%'
+            - '%dekalee_cdn77.url.purge%'
+    dekalee_cdn77.query.purge_all:
+        class: '%dekalee_cdn77.query.purge_all.class%'
+        arguments:
+            - '@dekalee_cdn77.query.list_resources'
+            - '%dekalee_cdn77.api.login%'
+            - '%dekalee_cdn77.api.password%'
+            - '%dekalee_cdn77.url.purge_all%'
