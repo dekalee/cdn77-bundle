@@ -2,6 +2,7 @@
 
 namespace Dekalee\Cdn77Bundle\DependencyInjection;
 
+use Dekalee\Cdn77\Query\CreateResourceQuery;
 use Dekalee\Cdn77\Query\ListResourcesQuery;
 use Dekalee\Cdn77\Query\PurgeAllQuery;
 use Dekalee\Cdn77\Query\PurgeFileQuery;
@@ -28,7 +29,12 @@ class DekaleeCdn77Extension extends Extension
         $container->setParameter('dekalee_cdn77.api.login', $config['login']);
         $container->setParameter('dekalee_cdn77.api.password', $config['password']);
 
-        foreach (['list' => ListResourcesQuery::URL, 'purge' => PurgeFileQuery::URL, 'purge_all' => PurgeAllQuery::URL] as $queryType => $url) {
+        foreach ([
+            'list' => ListResourcesQuery::URL,
+            'purge' => PurgeFileQuery::URL,
+            'purge_all' => PurgeAllQuery::URL,
+            'create' => CreateResourceQuery::URL,
+        ] as $queryType => $url) {
             if (array_key_exists($queryType, $config['url'])) {
                 $url = $config['url'][$queryType];
             }

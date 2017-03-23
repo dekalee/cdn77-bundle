@@ -2,6 +2,7 @@ parameters:
     dekalee_cdn77.query.list_resources.class: Dekalee\Cdn77\Query\ListResourcesQuery
     dekalee_cdn77.query.purge_file.class: Dekalee\Cdn77\Query\PurgeFileQuery
     dekalee_cdn77.query.purge_all.class: Dekalee\Cdn77\Query\PurgeAllQuery
+    dekalee_cdn77.query.create_resource.class: Dekalee\Cdn77\Query\CreateResourceQuery
 
 services:
     dekalee_cdn77.query.list_resources:
@@ -24,3 +25,9 @@ services:
             - '%dekalee_cdn77.api.login%'
             - '%dekalee_cdn77.api.password%'
             - '%dekalee_cdn77.url.purge_all%'
+    dekalee_cdn77.query.create_resources:
+        class: '%dekalee_cdn77.query.create_resource.class%'
+        arguments:
+            - '%dekalee_cdn77.api.login%'
+            - '%dekalee_cdn77.api.password%'
+            - '%dekalee_cdn77.url.create%'
