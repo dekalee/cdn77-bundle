@@ -27,6 +27,7 @@ class Configuration implements ConfigurationInterface
                 ->addDefaultsIfNotSet()
                 ->children()
                     ->scalarNode('list')->end()
+                    ->scalarNode('create')->end()
                     ->scalarNode('purge')->end()
                     ->scalarNode('purge_all')->end()
                 ->end()
