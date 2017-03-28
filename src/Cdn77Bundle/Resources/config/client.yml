@@ -1,0 +1,6 @@
+parameters:
+    dekalee_cdn77.client.class: GuzzleHttp\Client
+
+services:
+    guzzle.client.cdn77:
+        class: '%dekalee_cdn77.client.class%'

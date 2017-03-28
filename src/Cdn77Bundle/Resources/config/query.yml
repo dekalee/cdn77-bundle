@@ -11,6 +11,7 @@ services:
             - '%dekalee_cdn77.api.login%'
             - '%dekalee_cdn77.api.password%'
             - '%dekalee_cdn77.url.list%'
+            - '@guzzle.client.cdn77'
     dekalee_cdn77.query.purge_file:
         class: '%dekalee_cdn77.query.purge_file.class%'
         arguments:
@@ -18,6 +19,7 @@ services:
             - '%dekalee_cdn77.api.login%'
             - '%dekalee_cdn77.api.password%'
             - '%dekalee_cdn77.url.purge%'
+            - '@guzzle.client.cdn77'
     dekalee_cdn77.query.purge_all:
         class: '%dekalee_cdn77.query.purge_all.class%'
         arguments:
@@ -25,9 +27,11 @@ services:
             - '%dekalee_cdn77.api.login%'
             - '%dekalee_cdn77.api.password%'
             - '%dekalee_cdn77.url.purge_all%'
+            - '@guzzle.client.cdn77'
     dekalee_cdn77.query.create_resources:
         class: '%dekalee_cdn77.query.create_resource.class%'
         arguments:
             - '%dekalee_cdn77.api.login%'
             - '%dekalee_cdn77.api.password%'
             - '%dekalee_cdn77.url.create%'
+            - '@guzzle.client.cdn77'
