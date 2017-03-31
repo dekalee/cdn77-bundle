@@ -1,9 +1,10 @@
 Dekalee CDN77 Bundle
 ====================
 
-| Service | Badge |
-| -------- |:--------:|
-| Code quality (scrutinizer) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dekalee/cdn77-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dekalee/cdn77-bundle/?branch=master) |
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dekalee/cdn77-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dekalee/cdn77-bundle/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/dekalee/cdn77-bundle/v/stable)](https://packagist.org/packages/dekalee/cdn77-bundle)
+[![Total Downloads](https://poser.pugx.org/dekalee/cdn77-bundle/downloads)](https://packagist.org/packages/dekalee/cdn77-bundle)
+[![License](https://poser.pugx.org/dekalee/cdn77-bundle/license)](https://packagist.org/packages/dekalee/cdn77-bundle)
 
 This symfony bundle wraps the usage of the library [Cdn77](https://github.com/dekalee/cdn77-bundle)
 
