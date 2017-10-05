@@ -6,6 +6,7 @@ use Dekalee\Cdn77\Query\CreateResourceQuery;
 use Dekalee\Cdn77\Query\ListResourcesQuery;
 use Dekalee\Cdn77\Query\PurgeAllQuery;
 use Dekalee\Cdn77\Query\PurgeFileQuery;
+use Dekalee\Cdn77\Query\ResourceLogQuery;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -35,6 +36,7 @@ class DekaleeCdn77Extension extends Extension implements PrependExtensionInterfa
             'purge' => PurgeFileQuery::URL,
             'purge_all' => PurgeAllQuery::URL,
             'create' => CreateResourceQuery::URL,
+            'resource_log' => ResourceLogQuery::URL,
         ] as $queryType => $url) {
             if (array_key_exists($queryType, $config['url'])) {
                 $url = $config['url'][$queryType];

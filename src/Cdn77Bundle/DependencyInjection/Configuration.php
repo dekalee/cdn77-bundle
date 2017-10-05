@@ -30,6 +30,7 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('create')->end()
                     ->scalarNode('purge')->end()
                     ->scalarNode('purge_all')->end()
+                    ->scalarNode('resource_log')->end()
                 ->end()
             ->end()
         ->end();
