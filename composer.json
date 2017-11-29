@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "~2.3|~3.0",
-        "symfony/console": "~2.3|~3.0",
+        "symfony/framework-bundle": "~2.3|~3.0|^4.0",
+        "symfony/console": "~2.3|~3.0|^4.0",
         "dekalee/cdn77": "~1.2"
     },
     "suggest": {
