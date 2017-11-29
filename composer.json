@@ -1,8 +1,8 @@
 {
     "name": "dekalee/cdn77-bundle",
     "description": "A bundle to use the lib to communicate with the cdn77 api",
-    "type": "bundle",
-    "license": "Apache-2.0",
+    "type": "symfony-bundle",
+    "license": "MIT",
     "authors": [
         {
             "name": "Nicolas Thal",
