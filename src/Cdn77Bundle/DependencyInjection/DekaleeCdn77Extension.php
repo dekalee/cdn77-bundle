@@ -62,6 +62,15 @@ class DekaleeCdn77Extension extends Extension implements PrependExtensionInterfa
     {
         $bundles = $container->getParameter('kernel.bundles');
 
+        if (array_key_exists('EightPointsGuzzleBundle', $bundles)) {
+            $config = $container->getExtensionConfig('eight_points_guzzle');
+            $config[0]['clients']['cdn77'] = [
+                'base_url' => ''
+            ];
+            $processedConfiguration = $this->processConfiguration(new \EightPoints\Bundle\GuzzleBundle\DependencyInjection\Configuration('eight_points_guzzle'), $config);
+
+            $container->prependExtensionConfig('eight_points_guzzle', $processedConfiguration);
+        }
         if (array_key_exists('GuzzleBundle', $bundles)) {
             $config = $container->getExtensionConfig('guzzle');
             $config[0]['clients']['cdn77'] = null;
