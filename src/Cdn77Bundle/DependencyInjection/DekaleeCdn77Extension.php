@@ -3,6 +3,7 @@
 namespace Dekalee\Cdn77Bundle\DependencyInjection;
 
 use Dekalee\Cdn77\Query\CreateResourceQuery;
+use Dekalee\Cdn77\Query\DeleteResourceQuery;
 use Dekalee\Cdn77\Query\ListResourcesQuery;
 use Dekalee\Cdn77\Query\PurgeAllQuery;
 use Dekalee\Cdn77\Query\PurgeFileQuery;
@@ -37,6 +38,7 @@ class DekaleeCdn77Extension extends Extension implements PrependExtensionInterfa
             'purge_all' => PurgeAllQuery::URL,
             'create' => CreateResourceQuery::URL,
             'resource_log' => ResourceLogQuery::URL,
+            'delete_resource' => DeleteResourceQuery::URL,
         ] as $queryType => $url) {
             if (array_key_exists($queryType, $config['url'])) {
                 $url = $config['url'][$queryType];
