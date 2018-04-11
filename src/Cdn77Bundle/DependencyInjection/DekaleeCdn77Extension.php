@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Loader;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * To learn more see {@link https://symfony.com}
  */
 class DekaleeCdn77Extension extends Extension implements PrependExtensionInterface
 {
@@ -47,11 +47,11 @@ class DekaleeCdn77Extension extends Extension implements PrependExtensionInterfa
         }
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('query.yml');
+        $loader->load('query.yaml');
 
         $bundles = $container->getParameter('kernel.bundles');
         if (!array_key_exists('GuzzleBundle', $bundles)) {
-            $loader->load('client.yml');
+            $loader->load('client.yaml');
         }
     }
 
