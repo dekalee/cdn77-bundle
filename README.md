@@ -42,6 +42,8 @@ If you want to override the api urls used, you can do it for each of them :
         create: Your url
         purge: Your url
         purge_all: Your url
+        resource_log: Your url
+        delete_resource: Your url
 ```
 
 Usage
