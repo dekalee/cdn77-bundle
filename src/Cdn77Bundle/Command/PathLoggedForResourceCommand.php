@@ -2,8 +2,8 @@
 
 namespace Dekalee\Cdn77Bundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
+use Dekalee\Cdn77\Query\ResourceLogQuery;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,8 +11,20 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Class PathLoggedForResourceCommand
  */
-class PathLoggedForResourceCommand extends ContainerAwareCommand
+class PathLoggedForResourceCommand extends Command
 {
+    protected $resourceLogQuery;
+
+    /**
+     * @param ResourceLogQuery $resourceLogQuery
+     */
+    public function __construct(ResourceLogQuery $resourceLogQuery)
+    {
+        parent::__construct();
+        $this->resourceLogQuery = $resourceLogQuery;
+    }
+
+
     /**
      * Configure the command
      */
@@ -35,7 +47,7 @@ class PathLoggedForResourceCommand extends ContainerAwareCommand
     {
         $ressource = $input->getOption('resource');
 
-        $logs = $this->getContainer()->get('dekalee_cdn77.query.resource_log')->execute($ressource);
+        $logs = $this->resourceLogQuery->execute($ressource);
 
         $output->writeln('List of file in the log');
 

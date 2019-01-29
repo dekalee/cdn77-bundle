@@ -2,8 +2,9 @@
 
 namespace Dekalee\Cdn77Bundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
+use Dekalee\Cdn77\Query\PurgeAllQuery;
+use Dekalee\Cdn77\Query\PurgeFileQuery;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,8 +12,23 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Class PurgeAllCacheCommand
  */
-class PurgeAllCacheCommand extends ContainerAwareCommand
+class PurgeAllCacheCommand extends Command
 {
+    protected $purgeFileQuery;
+    protected $purgeAllQuery;
+
+    /**
+     * @param PurgeFileQuery $purgeFileQuery
+     * @param PurgeAllQuery  $purgeAllQuery
+     */
+    public function __construct(PurgeFileQuery $purgeFileQuery, PurgeAllQuery $purgeAllQuery)
+    {
+        parent::__construct();
+        $this->purgeFileQuery = $purgeFileQuery;
+        $this->purgeAllQuery = $purgeAllQuery;
+    }
+
+
     /**
      * Configure the command
      */
@@ -37,9 +53,9 @@ class PurgeAllCacheCommand extends ContainerAwareCommand
         $ressource = $input->getOption('resource');
 
         if ($file = $input->getOption('file')) {
-            $this->getContainer()->get('dekalee_cdn77.query.purge_file')->execute($ressource, [$file]);
+            $this->purgeFileQuery->execute($ressource, [$file]);
         } else {
-            $this->getContainer()->get('dekalee_cdn77.query.purge_all')->execute($ressource);
+            $this->purgeAllQuery->execute($ressource);
         }
 
         $output->writeln('Purge query send');

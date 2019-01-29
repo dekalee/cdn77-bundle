@@ -1,0 +1,12 @@
+services:
+    Dekalee\Cdn77Bundle\Command\PurgeAllCacheCommand:
+        arguments:
+            - '@dekalee_cdn77.query.purge_file'
+            - '@dekalee_cdn77.query.purge_all'
+        tags:
+            - { name: console.command }
+    Dekalee\Cdn77Bundle\Command\PathLoggedForResourceCommand:
+        arguments:
+            - '@dekalee_cdn77.query.resource_log'
+        tags:
+            - { name: console.command }
