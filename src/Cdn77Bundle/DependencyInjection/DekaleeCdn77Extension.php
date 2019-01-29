@@ -48,6 +48,7 @@ class DekaleeCdn77Extension extends Extension implements PrependExtensionInterfa
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('query.yaml');
+        $loader->load('command.yaml');
 
         $bundles = $container->getParameter('kernel.bundles');
         if (!array_key_exists('GuzzleBundle', $bundles)) {
